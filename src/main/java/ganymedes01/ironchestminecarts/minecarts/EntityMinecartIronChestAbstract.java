@@ -43,7 +43,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 				Class<? extends Entity> clazz = (Class<? extends Entity>) clazzInfo.load();
 				if (clss.isAssignableFrom(clazz)) {
 					IronChestType type = ((EntityMinecartIronChestAbstract) clazz.getConstructor(World.class).newInstance((World) null)).type();
-					EntityRegistry.registerModEntity(clazz, "minecart_" + type.name().toLowerCase(), type.ordinal(), IronChestMinecarts.instance, 64, 1, true);
+					EntityRegistry.registerModEntity(clazz, "minecart_chest_" + type.name().toLowerCase(), type.ordinal(), IronChestMinecarts.instance, 64, 1, true);
 					map.put(type, (Class<? extends EntityMinecartIronChestAbstract>) clazz);
 				}
 			}
@@ -135,7 +135,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 			return true;
 
 		if (!worldObj.isRemote)
-			player.openGui(IronChestMinecarts.instance, 99, worldObj, hashCode(), 0, 0);
+			player.openGui(IronChestMinecarts.instance, hashCode(), worldObj, 0, 0, 0);
 
 		return true;
 	}

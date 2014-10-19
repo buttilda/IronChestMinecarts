@@ -1,3 +1,4 @@
+# Items
 item.ironchestminecarts.minecart_chest_iron.name=Minecart with Iron Chest
 item.ironchestminecarts.minecart_chest_gold.name=Minecart with Gold Chest
 item.ironchestminecarts.minecart_chest_diamond.name=Minecart with Diamond Chest
@@ -6,3 +7,13 @@ item.ironchestminecarts.minecart_chest_silver.name=Minecart with Silver Chest
 item.ironchestminecarts.minecart_chest_crystal.name=Minecart with Crystal Chest
 item.ironchestminecarts.minecart_chest_obsidian.name=Minecart with Obsidian Chest
 item.ironchestminecarts.minecart_chest_dirtchest9000.name=Minecart with DirtChest9000
+
+# Entities
+entity.ironchestminecarts.minecart_chest_iron.name=Minecart with Iron Chest
+entity.ironchestminecarts.minecart_chest_gold.name=Minecart with Gold Chest
+entity.ironchestminecarts.minecart_chest_diamond.name=Minecart with Diamond Chest
+entity.ironchestminecarts.minecart_chest_copper.name=Minecart with Copper Chest
+entity.ironchestminecarts.minecart_chest_silver.name=Minecart with Silver Chest
+entity.ironchestminecarts.minecart_chest_crystal.name=Minecart with Crystal Chest
+entity.ironchestminecarts.minecart_chest_obsidian.name=Minecart with Obsidian Chest
+entity.ironchestminecarts.minecart_chest_dirtchest9000.name=Minecart with DirtChest9000

@@ -1,5 +1,6 @@
 package ganymedes01.ironchestminecarts;
 
+import ganymedes01.ironchestminecarts.gui.GuiHandler;
 import ganymedes01.ironchestminecarts.lib.Reference;
 import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
 import ganymedes01.ironchestminecarts.minecarts.ItemMinecartChestRenderer;
@@ -20,6 +21,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.ironchest.IronChest;
@@ -45,6 +47,9 @@ public class IronChestMinecarts {
 			if (cfg.hasChanged())
 				cfg.save();
 		}
+
+		// GUI
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
 		// Ore Dictionary
 		OreDictionary.registerOre("chestEnder", Blocks.ender_chest);
