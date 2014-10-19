@@ -1,0 +1,19 @@
+# Items
+item.ironchestminecarts.minecart_chest_iron.name=Vagonetto merci di ferro
+item.ironchestminecarts.minecart_chest_gold.name=Vagonetto merci d'oro
+item.ironchestminecarts.minecart_chest_diamond.name=Vagonetto merci di diamante
+item.ironchestminecarts.minecart_chest_copper.name=Vagonetto merci di rame
+item.ironchestminecarts.minecart_chest_silver.name=Vagonetto merci d'argento
+item.ironchestminecarts.minecart_chest_crystal.name=Vagonetto merci di cristallo
+item.ironchestminecarts.minecart_chest_obsidian.name=Vagonetto merci di ossidiana
+item.ironchestminecarts.minecart_chest_dirtchest9000.name=Vagonetto merci con DirtChest9000
+
+# Entities
+entity.ironchestminecarts.minecart_chest_iron.name=Vagonetto merci di ferro
+entity.ironchestminecarts.minecart_chest_gold.name=Vagonetto merci d'oro
+entity.ironchestminecarts.minecart_chest_diamond.name=Vagonetto merci di diamante
+entity.ironchestminecarts.minecart_chest_copper.name=Vagonetto merci di rame
+entity.ironchestminecarts.minecart_chest_silver.name=Vagonetto merci d'argento
+entity.ironchestminecarts.minecart_chest_crystal.name=Vagonetto merci di cristallo
+entity.ironchestminecarts.minecart_chest_obsidian.name=Vagonetto merci di ossidiana
+entity.ironchestminecarts.minecart_chest_dirtchest9000.name=Vagonetto merci con DirtChest9000
