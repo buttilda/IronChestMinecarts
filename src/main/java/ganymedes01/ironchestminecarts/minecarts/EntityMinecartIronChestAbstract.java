@@ -76,7 +76,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 	public abstract IronChestType type();
 
 	@Override
-	public void killMinecart(DamageSource p_94095_1_) {
+	public void killMinecart(DamageSource src) {
 		setDead();
 		ItemStack minecartt = new ItemStack(Items.minecart, 1);
 
@@ -85,7 +85,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 
 		entityDropItem(minecartt, 0.0F);
 
-		for (int i = 0; i < getSizeInventory(); ++i) {
+		for (int i = 0; i < getSizeInventory(); i++) {
 			ItemStack stack = getStackInSlot(i);
 
 			if (stack != null) {
@@ -199,7 +199,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 
 		NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < inventory.length; ++i)
+		for (int i = 0; i < inventory.length; i++)
 			if (inventory[i] != null) {
 				NBTTagCompound nbttagcompound1 = new NBTTagCompound();
 				nbttagcompound1.setByte("Slot", (byte) i);
@@ -224,7 +224,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 		NBTTagList nbttaglist = nbt.getTagList("Items", 10);
 		inventory = new ItemStack[getSizeInventory()];
 
-		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
+		for (int i = 0; i < nbttaglist.tagCount(); i++) {
 			NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
 			int j = nbttagcompound1.getByte("Slot") & 255;
 
