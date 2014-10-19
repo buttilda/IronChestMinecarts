@@ -6,20 +6,16 @@ import cpw.mods.ironchest.IronChestType;
 
 public class EntityMinecartIronChest extends EntityMinecartIronChestAbstract {
 
-    public EntityMinecartIronChest(World world)
-    {
-        super(world);
-    }
+	public EntityMinecartIronChest(World world) {
+		super(world);
+	}
 
-    public EntityMinecartIronChest(World world, double x, double y, double z)
-    {
-        super(world, x, y, z);
-    }
+	public EntityMinecartIronChest(World world, double x, double y, double z) {
+		super(world, x, y, z);
+	}
 
-    @Override
-    public IronChestType type()
-    {
-        return IronChestType.IRON;
-    }
-
+	@Override
+	public IronChestType type() {
+		return IronChestType.IRON;
+	}
 }

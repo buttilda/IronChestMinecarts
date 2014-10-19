@@ -9,37 +9,28 @@ import cpw.mods.ironchest.IronChestType;
 
 public class ItemMinecartIronChest extends ItemMinecart {
 
-    public final IronChestType type;
+	public final IronChestType type;
 
-    public ItemMinecartIronChest(IronChestType type)
-    {
-        super(0);
-        this.type = type;
-    }
+	public ItemMinecartIronChest(IronChestType type) {
+		super(0);
+		this.type = type;
+	}
 
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
-    {
-        if (BlockRailBase.func_150051_a(world.getBlock(x, y, z)))
-        {
-            if (!world.isRemote)
-            {
-                EntityMinecartIronChestAbstract entityminecart = EntityMinecartIronChestAbstract.makeMinecart(world, x + 0.5F, y + 0.5F, z + 0.5F, type);
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+		if (BlockRailBase.func_150051_a(world.getBlock(x, y, z))) {
+			if (!world.isRemote) {
+				EntityMinecartIronChestAbstract entityminecart = EntityMinecartIronChestAbstract.makeMinecart(world, x + 0.5F, y + 0.5F, z + 0.5F, type);
 
-                if (stack.hasDisplayName())
-                {
-                    entityminecart.setMinecartName(stack.getDisplayName());
-                }
+				if (stack.hasDisplayName())
+					entityminecart.setMinecartName(stack.getDisplayName());
 
-                world.spawnEntityInWorld(entityminecart);
-            }
+				world.spawnEntityInWorld(entityminecart);
+			}
 
-            stack.stackSize--;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+			stack.stackSize--;
+			return true;
+		} else
+			return false;
+	}
 }

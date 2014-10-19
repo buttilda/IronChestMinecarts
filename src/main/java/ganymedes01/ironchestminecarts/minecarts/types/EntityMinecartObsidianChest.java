@@ -6,20 +6,16 @@ import cpw.mods.ironchest.IronChestType;
 
 public class EntityMinecartObsidianChest extends EntityMinecartIronChestAbstract {
 
-    public EntityMinecartObsidianChest(World world)
-    {
-        super(world);
-    }
+	public EntityMinecartObsidianChest(World world) {
+		super(world);
+	}
 
-    public EntityMinecartObsidianChest(World world, double x, double y, double z)
-    {
-        super(world, x, y, z);
-    }
+	public EntityMinecartObsidianChest(World world, double x, double y, double z) {
+		super(world, x, y, z);
+	}
 
-    @Override
-    public IronChestType type()
-    {
-        return IronChestType.OBSIDIAN;
-    }
-
+	@Override
+	public IronChestType type() {
+		return IronChestType.OBSIDIAN;
+	}
 }
