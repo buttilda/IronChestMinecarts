@@ -33,6 +33,7 @@ public class IronChestMinecarts {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		// Configuration
 		boolean renderMinecarts3D = false;
 		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try {
@@ -45,6 +46,7 @@ public class IronChestMinecarts {
 				cfg.save();
 		}
 
+		// Ore Dictionary
 		OreDictionary.registerOre("chestEnder", Blocks.ender_chest);
 		OreDictionary.registerOre("chestTrapped", Blocks.trapped_chest);
 		OreDictionary.registerOre("chestWood", Blocks.chest);
