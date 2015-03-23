@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.ironchest.IronChest;
 import cpw.mods.ironchest.IronChestType;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, dependencies = Reference.DEPENDENCIES)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION_NUMBER, dependencies = Reference.DEPENDENCIES)
 public class IronChestMinecarts {
 
 	@Instance(Reference.MOD_ID)
