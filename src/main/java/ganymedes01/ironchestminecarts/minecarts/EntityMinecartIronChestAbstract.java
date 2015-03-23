@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import mods.railcraft.api.carts.IItemTransfer;
+import mods.railcraft.api.core.items.IStackFilter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -24,12 +26,14 @@ import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
 
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.ironchest.IronChest;
 import cpw.mods.ironchest.IronChestType;
 
 @SuppressWarnings("all")
-public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChest {
+@Optional.Interface(iface = "mods.railcraft.api.carts.IItemTransfer", modid = "Railcraft")
+public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChest implements IItemTransfer {
 
 	private ItemStack[] inventory = new ItemStack[getSizeInventory()];
 	private static final Map<IronChestType, Class<? extends EntityMinecartIronChestAbstract>> map = new HashMap<IronChestType, Class<? extends EntityMinecartIronChestAbstract>>();
@@ -231,5 +235,65 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 			if (j >= 0 && j < inventory.length)
 				inventory[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
 		}
+	}
+
+	@Override
+	@Optional.Method(modid = "Railcraft")
+	public ItemStack offerItem(Object source, ItemStack offer) {
+		if (offer == null)
+			return null;
+
+		offer = offer.copy();
+		for (int slot = 0; slot < getSizeInventory(); slot++)
+			if (getStackInSlot(slot) == null) {
+				setInventorySlotContents(slot, offer);
+				return null;
+			} else {
+				ItemStack invtStack = getStackInSlot(slot);
+				if (invtStack.stackSize < Math.min(invtStack.getMaxStackSize(), getInventoryStackLimit()) && ItemStack.areItemStacksEqual(offer, invtStack)) {
+					invtStack.stackSize += offer.stackSize;
+					if (invtStack.stackSize > invtStack.getMaxStackSize()) {
+						offer.stackSize = invtStack.stackSize - invtStack.getMaxStackSize();
+						invtStack.stackSize = invtStack.getMaxStackSize();
+						return offer;
+					} else
+						return null;
+				}
+			}
+
+		return offer;
+	}
+
+	@Override
+	@Optional.Method(modid = "Railcraft")
+	public ItemStack requestItem(Object source) {
+		for (int slot = 0; slot < getSizeInventory(); slot++) {
+			ItemStack stack = getStackInSlot(slot);
+			if (stack != null)
+				return decrStackSize(slot, 1);
+		}
+		return null;
+	}
+
+	@Override
+	@Optional.Method(modid = "Railcraft")
+	public ItemStack requestItem(Object source, ItemStack request) {
+		for (int slot = 0; slot < getSizeInventory(); slot++) {
+			ItemStack stack = getStackInSlot(slot);
+			if (stack != null && ItemStack.areItemStacksEqual(stack, request))
+				return decrStackSize(slot, 1);
+		}
+		return null;
+	}
+
+	@Override
+	@Optional.Method(modid = "Railcraft")
+	public ItemStack requestItem(Object source, IStackFilter request) {
+		for (int slot = 0; slot < getSizeInventory(); slot++) {
+			ItemStack stack = getStackInSlot(slot);
+			if (stack != null && request.matches(stack))
+				return decrStackSize(slot, 1);
+		}
+		return null;
 	}
 }
