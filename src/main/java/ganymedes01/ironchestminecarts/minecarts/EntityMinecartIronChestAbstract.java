@@ -82,39 +82,37 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 	@Override
 	public void killMinecart(DamageSource src) {
 		setDead();
-		ItemStack minecartt = new ItemStack(Items.minecart, 1);
 
+		// cart
+		ItemStack minecart = new ItemStack(Items.minecart);
 		if (func_95999_t() != null)
-			minecartt.setStackDisplayName(func_95999_t());
+			minecart.setStackDisplayName(func_95999_t());
+		entityDropItem(minecart, 0.0F);
 
-		entityDropItem(minecartt, 0.0F);
+		// chest
+		entityDropItem(new ItemStack(func_145817_o(), 1, type().ordinal()), 0.0F);
 
+		// contents
 		for (int i = 0; i < getSizeInventory(); i++) {
 			ItemStack stack = getStackInSlot(i);
+			if (stack != null && stack.stackSize > 0) {
+				float x = rand.nextFloat() * 0.8F + 0.1F;
+				float y = rand.nextFloat() * 0.8F + 0.1F;
+				float z = rand.nextFloat() * 0.8F + 0.1F;
 
-			if (stack != null) {
-				float f = rand.nextFloat() * 0.8F + 0.1F;
-				float f1 = rand.nextFloat() * 0.8F + 0.1F;
-				float f2 = rand.nextFloat() * 0.8F + 0.1F;
-
-				while (stack.stackSize > 0) {
-					int j = rand.nextInt(21) + 10;
-
-					if (j > stack.stackSize)
-						j = stack.stackSize;
-
-					stack.stackSize -= j;
-					EntityItem entityitem = new EntityItem(worldObj, posX + f, posY + f1, posZ + f2, new ItemStack(stack.getItem(), j, stack.getItemDamage()));
-					float f3 = 0.05F;
-					entityitem.motionX = (float) rand.nextGaussian() * f3;
-					entityitem.motionY = (float) rand.nextGaussian() * f3 + 0.2F;
-					entityitem.motionZ = (float) rand.nextGaussian() * f3;
-					worldObj.spawnEntityInWorld(entityitem);
-				}
+				EntityItem entityitem = new EntityItem(worldObj, posX + x, posY + y, posZ + z, stack.copy());
+				entityitem.motionX = (float) rand.nextGaussian() * 0.05F;
+				entityitem.motionY = (float) rand.nextGaussian() * 0.25F;
+				entityitem.motionZ = (float) rand.nextGaussian() * 0.05F;
+				worldObj.spawnEntityInWorld(entityitem);
+				setInventorySlotContents(i, null);
 			}
 		}
+	}
 
-		entityDropItem(new ItemStack(func_145817_o(), 1, type().ordinal()), 0.0F);
+	@Override
+	public void setDead() {
+		isDead = true;
 	}
 
 	@Override
