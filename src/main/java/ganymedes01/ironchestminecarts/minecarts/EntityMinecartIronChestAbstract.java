@@ -187,6 +187,11 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 	}
 
 	@Override
+	public boolean isItemValidForSlot(int slot, ItemStack stack) {
+		return type().acceptsStack(stack);
+	}
+
+	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		if (hasDisplayTile()) {
 			nbt.setBoolean("CustomDisplayTile", true);
