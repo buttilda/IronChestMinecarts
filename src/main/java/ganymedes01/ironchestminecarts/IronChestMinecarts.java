@@ -5,6 +5,10 @@ import ganymedes01.ironchestminecarts.lib.Reference;
 import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
 import ganymedes01.ironchestminecarts.minecarts.ItemMinecartChestRenderer;
 import ganymedes01.ironchestminecarts.minecarts.ItemMinecartIronChest;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -32,6 +36,8 @@ public class IronChestMinecarts {
 
 	@Instance(Reference.MOD_ID)
 	public static IronChestMinecarts instance;
+
+	public static Map<IronChestType, Item> carts = new HashMap<IronChestType, Item>();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -62,6 +68,7 @@ public class IronChestMinecarts {
 			// Item registering
 			Item minecart = new ItemMinecartIronChest(type).setUnlocalizedName(Reference.MOD_ID + ".minecart_chest_" + name).setTextureName(Reference.MOD_ID + ":minecart_chest_" + name);
 			GameRegistry.registerItem(minecart, "minecart_chest_" + name);
+			carts.put(type, minecart);
 
 			// Recipe
 			ItemStack chest = new ItemStack(IronChest.ironChestBlock, 1, type.ordinal());

@@ -15,6 +15,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityMinecartChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -78,6 +79,12 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 	}
 
 	public abstract IronChestType type();
+
+	@Override
+	public ItemStack getCartItem() {
+		Item minecart = IronChestMinecarts.carts.get(type());
+		return new ItemStack(minecart != null ? minecart : Items.minecart);
+	}
 
 	@Override
 	public void killMinecart(DamageSource src) {
