@@ -48,7 +48,7 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 				Class<? extends Entity> clazz = (Class<? extends Entity>) clazzInfo.load();
 				if (clss.isAssignableFrom(clazz)) {
 					IronChestType type = ((EntityMinecartIronChestAbstract) clazz.getConstructor(World.class).newInstance((World) null)).type();
-					EntityRegistry.registerModEntity(clazz, "minecart_chest_" + type.name().toLowerCase(), type.ordinal(), IronChestMinecarts.instance, 64, 1, true);
+					EntityRegistry.registerModEntity(clazz, "minecart_chest_" + type.name().toLowerCase(), type.ordinal(), IronChestMinecarts.instance, 80, 3, true);
 					map.put(type, (Class<? extends EntityMinecartIronChestAbstract>) clazz);
 				}
 			}
