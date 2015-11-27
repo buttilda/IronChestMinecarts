@@ -1,22 +1,7 @@
 package ganymedes01.ironchestminecarts;
 
-import ganymedes01.ironchestminecarts.gui.GuiHandler;
-import ganymedes01.ironchestminecarts.lib.Reference;
-import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
-import ganymedes01.ironchestminecarts.minecarts.ItemMinecartChestRenderer;
-import ganymedes01.ironchestminecarts.minecarts.ItemMinecartIronChest;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import org.apache.logging.log4j.Level;
 
@@ -30,6 +15,19 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.ironchest.IronChest;
 import cpw.mods.ironchest.IronChestType;
+import ganymedes01.ironchestminecarts.gui.GuiHandler;
+import ganymedes01.ironchestminecarts.lib.Reference;
+import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
+import ganymedes01.ironchestminecarts.minecarts.ItemMinecartChestRenderer;
+import ganymedes01.ironchestminecarts.minecarts.ItemMinecartIronChest;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION_NUMBER, dependencies = Reference.DEPENDENCIES)
 public class IronChestMinecarts {

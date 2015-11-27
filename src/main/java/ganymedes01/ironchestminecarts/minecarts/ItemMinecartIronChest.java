@@ -1,11 +1,11 @@
 package ganymedes01.ironchestminecarts.minecarts;
 
+import cpw.mods.ironchest.IronChestType;
 import net.minecraft.block.BlockRailBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemMinecart;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import cpw.mods.ironchest.IronChestType;
 
 public class ItemMinecartIronChest extends ItemMinecart {
 

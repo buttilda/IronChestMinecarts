@@ -1,11 +1,17 @@
 package ganymedes01.ironchestminecarts.minecarts;
 
-import ganymedes01.ironchestminecarts.IronChestMinecarts;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.reflect.ClassPath;
+import com.google.common.reflect.ClassPath.ClassInfo;
+
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.ironchest.IronChest;
+import cpw.mods.ironchest.IronChestType;
+import ganymedes01.ironchestminecarts.IronChestMinecarts;
 import mods.railcraft.api.carts.IItemTransfer;
 import mods.railcraft.api.core.items.IStackFilter;
 import net.minecraft.block.Block;
@@ -23,14 +29,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
-
-import com.google.common.reflect.ClassPath;
-import com.google.common.reflect.ClassPath.ClassInfo;
-
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.ironchest.IronChest;
-import cpw.mods.ironchest.IronChestType;
 
 @SuppressWarnings("all")
 @Optional.Interface(iface = "mods.railcraft.api.carts.IItemTransfer", modid = "Railcraft")

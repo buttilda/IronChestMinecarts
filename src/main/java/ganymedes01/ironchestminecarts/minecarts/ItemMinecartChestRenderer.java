@@ -1,12 +1,11 @@
 package ganymedes01.ironchestminecarts.minecarts;
 
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.texture.TextureMap;
-
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.ironchest.IronChest;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.texture.TextureMap;
 
 public class ItemMinecartChestRenderer extends ItemMinecartRenderer {
 

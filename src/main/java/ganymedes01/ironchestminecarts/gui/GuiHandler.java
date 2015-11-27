@@ -1,16 +1,15 @@
 package ganymedes01.ironchestminecarts.gui;
 
-import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
-
 import java.lang.reflect.Constructor;
 
+import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.ironchest.ContainerIronChest;
+import cpw.mods.ironchest.client.GUIChest;
+import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.ironchest.ContainerIronChest;
-import cpw.mods.ironchest.client.GUIChest;
 
 public class GuiHandler implements IGuiHandler {
 

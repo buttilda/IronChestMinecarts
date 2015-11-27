@@ -1,8 +1,8 @@
 package ganymedes01.ironchestminecarts.minecarts.types;
 
+import cpw.mods.ironchest.IronChestType;
 import ganymedes01.ironchestminecarts.minecarts.EntityMinecartIronChestAbstract;
 import net.minecraft.world.World;
-import cpw.mods.ironchest.IronChestType;
 
 public class EntityMinecartCrystalChest extends EntityMinecartIronChestAbstract {
 
