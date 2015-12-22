@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0.3"
+version = "1.0.4"
 group = "ganymedes01.ironchestminecarts"
 archivesBaseName = "IronChestMinecarts"
 
 minecraft {
-    version = "1.7.10-10.13.2.1230"
+    version = "1.7.10-10.13.4.1558-1.7.10"
     runDir = "eclipse/assets"
 }
 
