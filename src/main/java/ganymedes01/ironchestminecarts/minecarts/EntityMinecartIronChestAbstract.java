@@ -11,6 +11,7 @@ import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.ironchest.IronChest;
 import cpw.mods.ironchest.IronChestType;
+import cpw.mods.ironchest.ItemChestChanger;
 import ganymedes01.ironchestminecarts.IronChestMinecarts;
 import mods.railcraft.api.carts.IItemTransfer;
 import mods.railcraft.api.core.items.IStackFilter;
@@ -140,6 +141,28 @@ public abstract class EntityMinecartIronChestAbstract extends EntityMinecartChes
 	public boolean interactFirst(EntityPlayer player) {
 		if (MinecraftForge.EVENT_BUS.post(new MinecartInteractEvent(this, player)))
 			return true;
+
+		ItemStack stack = player.getCurrentEquippedItem();
+		if (stack != null && stack.getItem() instanceof ItemChestChanger) {
+			ItemChestChanger changer = (ItemChestChanger) stack.getItem();
+			if (changer.getType().canUpgrade(type())) {
+				if (!worldObj.isRemote) {
+					IronChestType newType = IronChestType.values()[changer.getTargetChestOrdinal(type().ordinal())];
+					NBTTagCompound nbt = new NBTTagCompound();
+					writeToNBT(nbt);
+					setDead();
+					try {
+						EntityMinecartIronChestAbstract minecart = map.get(newType).getConstructor(World.class).newInstance(worldObj);
+						minecart.readFromNBT(nbt);
+						worldObj.spawnEntityInWorld(minecart);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				if (!player.capabilities.isCreativeMode && --stack.stackSize <= 0)
+					player.setCurrentItemOrArmor(0, null);
+			}
+		}
 
 		if (!worldObj.isRemote)
 			player.openGui(IronChestMinecarts.instance, hashCode(), worldObj, 0, 0, 0);
